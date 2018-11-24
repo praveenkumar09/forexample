@@ -9,21 +9,21 @@ func main() {
 		`no_dr`:           []string{`Being evil`, `Ice cream`, `Sunsets`},
 	}
 
-	m["praveen"] = []string{`something here`,`some more thing here`,`some more more thing here`};
+	m["praveen"] = []string{`something here`, `some more thing here`, `some more more thing here`}
 
-	for i,v := range m{
-		fmt.Println(i,v)
-		for a,b := range v{
-			fmt.Println(a,b)
+	for i, v := range m {
+		fmt.Println(i, v)
+		for a, b := range v {
+			fmt.Println(a, b)
 		}
 	}
 
-	delete(m,"praveen")
+	delete(m, "praveen")
 
-	for i,v := range m{
-		fmt.Println(i,v)
-		for a,b := range v{
-			fmt.Println(a,b)
+	for i, v := range m {
+		fmt.Println(i, v)
+		for a, b := range v {
+			fmt.Println(a, b)
 		}
 	}
 

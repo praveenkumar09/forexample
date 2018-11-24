@@ -10,10 +10,10 @@ func main() {
 	}
 	fmt.Println(m)
 
-	for i,v := range m{
-		fmt.Println(i,v)
-		for a,b := range v{
-			fmt.Println(a,b)
+	for i, v := range m {
+		fmt.Println(i, v)
+		for a, b := range v {
+			fmt.Println(a, b)
 		}
 	}
 

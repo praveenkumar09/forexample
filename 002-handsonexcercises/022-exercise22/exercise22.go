@@ -11,8 +11,8 @@ func main() {
 	x[4] = 5
 	fmt.Println(x)
 
-	for i,v := range x {
-		fmt.Printf("%d\t\t%d\n",i,v);
-		fmt.Printf("%T\n",v);
+	for i, v := range x {
+		fmt.Printf("%d\t\t%d\n", i, v)
+		fmt.Printf("%T\n", v)
 	}
 }
