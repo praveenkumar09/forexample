@@ -19,7 +19,7 @@ func main() {
 	}
 
 	delete(m,"praveen")
-	
+
 	for i,v := range m{
 		fmt.Println(i,v)
 		for a,b := range v{
