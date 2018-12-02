@@ -3,10 +3,18 @@ package main
 import "fmt"
 
 func main() {
-	x := food()
-	fmt.Println(x)
+	x := func(){
+		for i:=0;i<3;i++{
+			fmt.Println(i)
+		}
+	}
+
+	x()
+	fmt.Printf("%T\n",x)
+
+	y := x
+	y()
+	fmt.Printf("%T\n",y)
+
 }
 
-func food() string {
-	return fmt.Sprint("The string is coming from function foo")
-}
