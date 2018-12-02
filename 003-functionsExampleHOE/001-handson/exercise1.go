@@ -12,7 +12,6 @@ func main() {
 
 func foo() int {
 	fmt.Println("In foo method")
-
 	return 42
 }
 
