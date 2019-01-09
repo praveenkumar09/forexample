@@ -12,4 +12,11 @@ func main() {
 		fmt.Println(err)
 	}
 	fmt.Println(string(pb))
+
+	err = bcrypt.CompareHashAndPassword(pb, []byte(password))
+	if err == nil {
+		fmt.Println("Both hash and password matches")
+	} else {
+		fmt.Println("Hash and password doesnt match")
+	}
 }
