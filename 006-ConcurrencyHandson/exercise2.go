@@ -12,7 +12,7 @@ type human interface {
 	speak()
 }
 
-func (p person) speak() {
+func (p *person) speak() {
 	fmt.Println("The person here is :", p.first, p.last, "  and he is ready to speak")
 }
 
@@ -27,7 +27,8 @@ func main() {
 		age:   27,
 	}
 
-	saySomething(p1) // doesnt work
+	//saySomething(p1) // doesnt work
 	saySomething(&p1)
+	p1.speak()
 
 }
