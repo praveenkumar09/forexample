@@ -7,7 +7,7 @@ import (
 
 //var wg sync.WaitGroup
 
-func main(){
+func main() {
 	c := make(chan int)
 	fmt.Println(c)
 	//wg.Add(2)
@@ -21,14 +21,14 @@ func main(){
 	fmt.Println("The code about to exit")
 }
 
-func foo(c chan<- int){
-	fmt.Println("GORout's",runtime.NumGoroutine())
+func foo(c chan<- int) {
+	fmt.Println("GORout's", runtime.NumGoroutine())
 	c <- 42
 	//wg.Done()
 }
 
-func bar(c <-chan int){
-	fmt.Println("GORout's",runtime.NumGoroutine())
-	fmt.Println("the value we got from the channel is :",<-c)
+func bar(c <-chan int) {
+	fmt.Println("GORout's", runtime.NumGoroutine())
+	fmt.Println("the value we got from the channel is :", <-c)
 	//wg.Done()
 }
