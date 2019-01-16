@@ -5,30 +5,16 @@ import (
 	"runtime"
 )
 
-//var wg sync.WaitGroup
-
 func main() {
 	c := make(chan int)
-	fmt.Println(c)
-	//wg.Add(2)
-	// send to the foo function
-	go foo(c)
-
-	//recieve from the bar function
-	bar(c)
-
-	// wg.Wait()
-	fmt.Println("The code about to exit")
-}
-
-func foo(c chan<- int) {
-	fmt.Println("GORout's", runtime.NumGoroutine())
-	c <- 42
-	//wg.Done()
-}
-
-func bar(c <-chan int) {
-	fmt.Println("GORout's", runtime.NumGoroutine())
-	fmt.Println("the value we got from the channel is :", <-c)
-	//wg.Done()
+	go func() {
+		fmt.Println("The number of routines first time is ->", runtime.NumGoroutine())
+		c <- 42
+		c <- 43
+		fmt.Println("The value 43 is also added")
+	}()
+	fmt.Println("The number of routines second time is ->", runtime.NumGoroutine())
+	fmt.Println("The value inside the channel is ->", <-c)
+	fmt.Println("The value inside the channel is ->", <-c)
+	fmt.Println("The number of routines third time is ->", runtime.NumGoroutine())
 }

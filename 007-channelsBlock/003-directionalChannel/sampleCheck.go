@@ -1,18 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	go foo1()
-	bar1()
-	fmt.Println("Code about to exit")
+	c := make(chan int)
+	go foo1(c)
+
+	bar1(c)
+	//fmt.Println("Code about to exit")
 
 }
 
-func foo1() {
-	fmt.Println("Hai there")
+func foo1(c chan<- int) {
+	for i := 0; i < 10; i++ {
+		fmt.Println("The value about to add in the channel is =>", i)
+		c <- i
+	}
+	close(c)
 }
 
-func bar1() {
-	fmt.Println("Hai secnd there")
+func bar1(c <-chan int){
+	for v := range c {
+		fmt.Println("The value about to recieve is =>", v)
+	}
 }
